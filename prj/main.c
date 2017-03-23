@@ -6,13 +6,9 @@
 
 #include "includes.h"
 
-
 int main()
 {
 	Init_all();
-
-	
-	
 	
 //-----------------------------------+
 	
