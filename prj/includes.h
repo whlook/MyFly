@@ -1,3 +1,8 @@
+/***********************************************
+
+	Fly2017  < 2017-1-13 >
+
+************************************************/
 #ifndef _INCLUDES_H_
 #define _INCLUDES_H_
 
@@ -27,13 +32,11 @@
 #include "my_imu.h"
 #include "my_math.h"
 #include "my_protocol.h"
-#include "sd_data.h"
 #include "offset.h"
 #include "pid.h"
 #include "control.h"
-#include "to_pc.h"
 #include  "duty.h"
-#include "flash.h"
+#include "flash_driver.h"
 
 
 

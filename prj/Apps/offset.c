@@ -1,8 +1,13 @@
+/***********************************************
+
+	Fly2017  < 2017-1-13 >
+
+************************************************/
 #include "offset.h"
 #include "stm32f4xx.h"
 #include "mpu9250_driver.h"
 #include "my_imu.h"
-#include "flash.h"
+#include "flash_driver.h"
 
 /* Externs */
 
@@ -38,7 +43,7 @@ void offset()
 		tempgx+= MPU_data.gyro_x;
 		tempgy+= MPU_data.gyro_y;
 		tempgz+= MPU_data.gyro_z;
-		if(cnt_g==20000)
+		if(cnt_g==2000)
 		{
 			offset_data.gyro_offset_x=tempgx/cnt_g;
 			offset_data.gyro_offset_y=tempgy/cnt_g;
@@ -69,7 +74,7 @@ void offset()
 		tempay+= MPU_data.acc_y;
 		tempaz+= MPU_data.acc_z;
 		
-		if(cnt_a==20000)
+		if(cnt_a==2000)
 		{
 			offset_data.acc_offset_x=tempax/cnt_a;
 			offset_data.acc_offset_y=tempay/cnt_a;

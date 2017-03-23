@@ -1,3 +1,8 @@
+/***********************************************
+
+	Fly2017  < 2017-1-13 >
+
+************************************************/
 #include "pwm_driver.h"
 #include "stm32f4xx_tim.h"
 #include "stm32f4xx_gpio.h"
@@ -49,7 +54,7 @@ void PWM_Init(void)
 	GPIO_Init(GPIOB,&GPIO_InitStructure);              //初始化
 	
 	/*定时器初始化*/
-	TIM_TimeBaseStructure.TIM_Prescaler=21-1;  //定时器分频
+	TIM_TimeBaseStructure.TIM_Prescaler=3360-1;  //定时器分频
 	TIM_TimeBaseStructure.TIM_CounterMode=TIM_CounterMode_Up; //向上计数模式
 	TIM_TimeBaseStructure.TIM_Period=10000-1;   //自动重装载值
 	TIM_TimeBaseStructure.TIM_ClockDivision=TIM_CKD_DIV1; 
@@ -77,58 +82,60 @@ void PWM_Init(void)
 	
 }
 
+#define MAXPWM 900  //1.8ms 
+#define MINPWM 500  //1ms
 void Set_ESC(void)
 {
-		TIM3->CCR1 = 8000; 
-		TIM3->CCR2 = 8000;
-		TIM3->CCR3 = 8000; 
-		TIM3->CCR4 = 8000;
+		TIM3->CCR1 = MAXPWM; 
+		TIM3->CCR2 = MAXPWM;
+		TIM3->CCR3 = MAXPWM;
+		TIM3->CCR4 = MAXPWM;
 		delay_ms(4000);
 	
-		TIM3->CCR1 = 4000; 
-		TIM3->CCR2 = 4000;
-		TIM3->CCR3 = 4000; 
-		TIM3->CCR4 = 4000;
+		TIM3->CCR1 = MINPWM; 
+		TIM3->CCR2 = MINPWM;
+		TIM3->CCR3 = MINPWM; 
+		TIM3->CCR4 = MINPWM;
 		delay_ms(2000);
 	
-		TIM3->CCR1 = 5000; 
-		TIM3->CCR2 = 5000;
-		TIM3->CCR3 = 5000; 
-		TIM3->CCR4 = 5000;
+		TIM3->CCR1 = MINPWM+100; 
+		TIM3->CCR2 = MINPWM+100;
+		TIM3->CCR3 = MINPWM+100; 
+		TIM3->CCR4 = MINPWM+100;
 }
 
 void Set_PWM1(u16 pwm_value)
 {
-	if(pwm_value<4000)
-		pwm_value = 4000;
-	if(pwm_value>8000)
-		pwm_value = 8000;
+	if(pwm_value<MINPWM)
+		pwm_value = MINPWM;
+	if(pwm_value>MAXPWM)
+		pwm_value = MAXPWM;
 	
 	TIM3->CCR1 = pwm_value;
 }
 void Set_PWM2(u16 pwm_value)
 {
-	if(pwm_value<4000)
-		pwm_value = 4000;
-	if(pwm_value>8000)
-		pwm_value = 8000;
+	if(pwm_value<MINPWM)
+		pwm_value = MINPWM;
+	if(pwm_value>MAXPWM)
+		pwm_value = MAXPWM;
 	
 	TIM3->CCR2 = pwm_value;
 }
 void Set_PWM3(u16 pwm_value)
 {
-	if(pwm_value<4000)
-		pwm_value = 4000;
-	if(pwm_value>8000)
-		pwm_value = 8000;
+	if(pwm_value<MINPWM)
+		pwm_value = MINPWM;
+	if(pwm_value>MAXPWM)
+		pwm_value = MAXPWM;
 	
 	TIM3->CCR3 = pwm_value;
 }
 void Set_PWM4(u16 pwm_value)
 {
-	if(pwm_value<4000)
-		pwm_value = 4000;
-	if(pwm_value>8000)
-		pwm_value = 8000;
+	if(pwm_value<MINPWM)
+		pwm_value = MINPWM;
+	if(pwm_value>MAXPWM)
+		pwm_value = MAXPWM;
 	TIM3->CCR4 = pwm_value;
 }

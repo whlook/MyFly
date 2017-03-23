@@ -121,7 +121,7 @@ void get_pit_rol_yaw()
 	
 	IMU_data.rol = fast_atan2(2*(q0*q1+q2*q3),1-2*(q1*q1+q2*q2))*57.3f;
 	IMU_data.pitch = asin(2*(q1*q3-q0*q2))*57.3f;
-	IMU_data.yaw = 0;//fast_atan2(2*(-q1*q2-q0*q3),2*(q0*q0+q1*q1)-1)*57.3f;
+	IMU_data.yaw = fast_atan2(2*(-q1*q2-q0*q3),2*(q0*q0+q1*q1)-1)*57.3f;
 	
 	
 }

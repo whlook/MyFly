@@ -137,13 +137,13 @@ void   MPU9250_get_data(void)
 {
 	
 	/****  data  ****/
-	MPU_data.acc_x = (float)GetData(0xd0,MPU6500_ACCEL_XOUT_H)*ACC_SCALE*CONSTANTS_ONE_G ;//- offset_data.acc_offset_x; // g
-	MPU_data.acc_y = (float)GetData(0xd0,MPU6500_ACCEL_YOUT_H)*ACC_SCALE*CONSTANTS_ONE_G ;//- offset_data.acc_offset_y;
-	MPU_data.acc_z = (float)GetData(0xd0,MPU6500_ACCEL_ZOUT_H)*ACC_SCALE*CONSTANTS_ONE_G ;//- offset_data.acc_offset_z;
+	MPU_data.acc_x = (float)GetData(0xd0,MPU6500_ACCEL_XOUT_H)*ACC_SCALE*CONSTANTS_ONE_G - offset_data.acc_offset_x; // g
+	MPU_data.acc_y = (float)GetData(0xd0,MPU6500_ACCEL_YOUT_H)*ACC_SCALE*CONSTANTS_ONE_G - offset_data.acc_offset_y;
+	MPU_data.acc_z = (float)GetData(0xd0,MPU6500_ACCEL_ZOUT_H)*ACC_SCALE*CONSTANTS_ONE_G - offset_data.acc_offset_z;
 	
-	MPU_data.gyro_x = (float)GetData(0xd0,MPU6500_GYRO_XOUT_H)*GYRO_SCALE*180.f/PI ;//- offset_data.gyro_offset_x; // deg/s
-	MPU_data.gyro_y = (float)GetData(0xd0,MPU6500_GYRO_YOUT_H)*GYRO_SCALE*180.f/PI ;//- offset_data.gyro_offset_y;
-	MPU_data.gyro_z = (float)GetData(0xd0,MPU6500_GYRO_ZOUT_H)*GYRO_SCALE*180.f/PI ;//- offset_data.gyro_offset_z;
+	MPU_data.gyro_x = (float)GetData(0xd0,MPU6500_GYRO_XOUT_H)*GYRO_SCALE*180.f/PI - offset_data.gyro_offset_x; // deg/s
+	MPU_data.gyro_y = (float)GetData(0xd0,MPU6500_GYRO_YOUT_H)*GYRO_SCALE*180.f/PI - offset_data.gyro_offset_y;
+	MPU_data.gyro_z = (float)GetData(0xd0,MPU6500_GYRO_ZOUT_H)*GYRO_SCALE*180.f/PI - offset_data.gyro_offset_z;
 	
 	MPU_data.temperature =(float)GetData(0xd0,MPU6500_TEMP_OUT_H)/340 + 36.53; // ¡æ
 	

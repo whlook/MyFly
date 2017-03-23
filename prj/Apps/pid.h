@@ -1,3 +1,8 @@
+/***********************************************
+
+	Fly2017  < 2017-1-13 >
+
+************************************************/
 #ifndef _PID_H_
 #define _PID_H_
 
@@ -23,10 +28,22 @@ typedef struct pid_data
 	float outer_pitch_i;
 	float outer_pitch_d;
 
-
 	float outer_yaw_p;
 	float outer_yaw_i;
 	float outer_yaw_d;	
+	
+	float single_rol_p;
+	float single_rol_i;
+	float single_rol_d;
+	
+	float single_pitch_p;
+	float single_pitch_i;
+	float single_pitch_d;
+
+	float single_yaw_p;
+	float single_yaw_i;
+	float single_yaw_d;	
+	
 	
 }pid_data_t;
 
@@ -79,5 +96,6 @@ void PID_Init();
 
 void inner_ctrl();
 void outer_ctrl();
+void single_pid();
 
 #endif
