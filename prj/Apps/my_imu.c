@@ -1,4 +1,4 @@
-/***********************************************
+ï»¿/***********************************************
 
 	Fly2017  < 2017-1-13 >
 
@@ -8,11 +8,11 @@
 #include "math.h"
 
 
-#define RtA 		57.324841				//»¡¶Èµ½½Ç¶È
-#define AtR    	0.0174533				//½Ç¶Èµ½»¡¶È
-#define Acc_G 	0.0011963				//¼ÓËÙ¶È±ä³ÉG
-#define Gyro_G 	0.0152672				//½ÇËÙ¶È±ä³É¶È
-#define Gyro_Gr	0.0002663			  //½ÇËÙ¶Èµ½»¡¶È
+#define RtA 		57.324841				//å¼§åº¦åˆ°è§’åº¦
+#define AtR    	0.0174533				//è§’åº¦åˆ°å¼§åº¦
+#define Acc_G 	0.0011963				//åŠ é€Ÿåº¦å˜æˆG
+#define Gyro_G 	0.0152672				//è§’é€Ÿåº¦å˜æˆåº¦
+#define Gyro_Gr	0.0002663			  //è§’é€Ÿåº¦åˆ°å¼§åº¦
 #define M_PI  (float)3.1415926535 
 
 
@@ -21,15 +21,15 @@
 #define Ki 	  0.008f
 #define halfT 0.027f //0.01
 
-IMU_data_t             IMU_data;  // ×ËÌ¬½âËã³öµÄÊı¾İ
+IMU_data_t             IMU_data;  // å§¿æ€è§£ç®—å‡ºçš„æ•°æ®
 
 /* Externs */
 
 
-extern MPU9250_read_data_t    MPU_data;  // mpu9250µÄÊı¾İ
+extern MPU9250_read_data_t    MPU_data;  // mpu9250çš„æ•°æ®
 
-extern float                  inner_loop_time; // ÄÚ»·Ê±¼ä
-extern float                  outer_loop_time; // Íâ»·Ê±¼ä
+extern float                  inner_loop_time; // å†…ç¯æ—¶é—´
+extern float                  outer_loop_time; // å¤–ç¯æ—¶é—´
 
 //////////\\\\\\\\\\////////////////////\\\\\\\\\\////////////////////\\\\\\\\\\////////////////////\\\\\\\\\\////////////////////\\\\\\\\\\//////////
 
